@@ -2,7 +2,7 @@
 
 | Bintray | Windows | Linux & macOS |
 |:--------:|:---------:|:-----------------:|
-|[![Download](https://api.bintray.com/packages/mjvk/public-conan/cppcheck_installer%3Amjvk/images/download.svg) ](https://bintray.com/mjvk/public-conan/cppcheck_installer%3Amjvk/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/r3bf3gq7gnx1sw54?svg=true)](https://ci.appveyor.com/project/mjvk/conan-cppcheck-installer)|[![Build Status](https://travis-ci.com/mjvk/conan-cppcheck_installer.svg?branch=stable%2F1.88)](https://travis-ci.com/mjvk/conan-cppcheck_installer)
+|[![Download](https://api.bintray.com/packages/mjvk/public-conan/cppcheck_installer%3Amjvk/images/download.svg) ](https://bintray.com/mjvk/public-conan/cppcheck_installer%3Amjvk/_latestVersion)|[![Build status](https://ci.appveyor.com/api/projects/status/r3bf3gq7gnx1sw54?svg=true)](https://ci.appveyor.com/project/mjvk/conan-cppcheck-installer)|[![Build Status](https://travis-ci.com/mjvk/conan-cppcheck_installer.svg?branch=testing%2F1.89)](https://travis-ci.com/mjvk/conan-cppcheck_installer)
 
 ## Conan.io Information
 
