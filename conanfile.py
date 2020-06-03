@@ -4,18 +4,24 @@ from conans import ConanFile, CMake, tools
 
 class CppCheckConan(ConanFile):
     name = "cppcheck_installer"
-    version = "1.90"
+    version = "2.0"
     url = "https://github.com/bincrafters/conan-cppcheck_installer"
     homepage = "https://github.com/danmar/cppcheck"
     topics = ("Cpp Check", "static analyzer")
     author = "Mark Jan van Kampen (@mjvk)"
     description = "Cppcheck is an analysis tool for C/C++ code."
     license = "GPL-3.0-or-later"
-    exports_sources = ["CMakeLists.txt"]
+    exports_sources = ["CMakeLists.txt","patches/**"]
     generators = "cmake"
     settings = "compiler", "arch", "os_build", "arch_build"
+    options = {"use_z3": [True, False]}
+    default_options = {"use_z3": False}
     _source_subfolder = "source_subfolder"
     _build_subfolder = "build_subfolder"
+    
+    def _patch_sources(self):
+        for patch in self.conan_data["patches"][self.version]:
+            tools.patch(**patch)
 
     def source(self):
         tools.get(**self.conan_data["sources"][self.version])
@@ -24,10 +30,12 @@ class CppCheckConan(ConanFile):
 
     def _configure_cmake(self):
         cmake = CMake(self)
+        cmake.definitions["USE_Z3"] = "ON" if self.options["USE_Z3"] else "OFF"
         cmake.configure(build_folder=self._build_subfolder)
         return cmake
 
     def build(self):
+        self._patch_sources()
         cmake = self._configure_cmake()
         cmake.build()
 
